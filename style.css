@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    height: 100%;
+    width: 100%;
+  }
+  
+.track-container {
+    position: relative;
+    top: 0;
+    bottom: 10px;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(360_F_496612135_DofAV4GxC2YmMImwpuUsC5imieZHJu6b.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+
+.car1, .car2, .car3 {
+    position: absolute;
+    width: 10vw;
+    height: auto; 
+    animation-name: carMove;
+    animation-duration: 10s;
+    animation-timing-function: ease;
+    transition-property: transform;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
+  
+  .car1 {
+    top: -5vh;
+    left: 5vw;
+    animation-delay: 1s;
+    transition-duration: 1s;
+    animation-name: carMove;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  .car2 {
+    top: 18vh; 
+    left: 5vw;
+    position: absolute;
+    z-index: 2;
+    transition-duration: 1s;
+    animation-name: carMove;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transition: left 0.5s ease;
+  }
+  
+  .car3 {
+    top: 40vh; 
+    left: 5vw;
+    animation-delay: 2s;
+    transition-duration: 1s;
+    animation-name: carMove;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+
+  .control-container {
+    position: fixed;
+    top: 590px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button1, .button2, .button3, .button4 {
+    display: block;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+    .button2:hover ~ .car2 {
+        left: 40%; /* Moves the red car to the left lane when hovering over the Left button */
+    }
+
+    .button3:hover ~ .car2 {
+        left: 75%; /* Moves the red car to the right lane when hovering over the Right button */
+    }
+
+    .button4:hover ~ .car2 {
+        left: 45%; /* Moves the red car back to the center when hovering over the Center button */
+    }
+
+@keyframes carMove {
+    from {
+      transform: translateX(0px);
+    }
+    to {
+      transform: translateX(100vw); 
+    }
+  }
+
+    @media screen and (max-width: 480px) {
+        body {
+            width: 100%;
+        }
+    }
